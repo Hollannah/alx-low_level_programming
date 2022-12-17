@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
- * main - print out sizes of data types in c
- * code by hollannah
- * Return: Always 0 (Sucess)
- *
+* main - Entry point
+* code by hollannah
+* Return: Always 0 (Sucess)
+*
 */
 int main(void)
 {
