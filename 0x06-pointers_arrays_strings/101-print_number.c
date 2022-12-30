@@ -1,59 +1,25 @@
-nclude "main.h"
-
-
+#include "main.h"
 
 /**
+ * print_number - Prints any integer with putchar
+ * @n: Number to prints
  *
- *   * print_number - Prints any integer with putchar
- *
- *     * @n: Number to prints
- *
- *       *
- *
- *         * Return: Nothing
- *
- *           */
-
+ * Return: Nothing
+ */
 void print_number(int n)
-
 {
+	unsigned int x;
 
-		unsigned int x;
+	if (n < 0)
+	{
+		_putchar('-');
+		n *= -1;
+	}
 
+	x = n;
 
+	if (x / 10)
+		print_number(x / 10);
 
-			if (n < 0)
-
-					{
-
-								_putchar('-');
-
-										n *= -1;
-
-											}
-
-
-
-				x = n;
-
-
-
-					if (x / 10)
-
-								print_number(x / 10);
-
-
-
-						_putchar(x % 10 + '0');
-
+	_putchar(x % 10 + '0');
 }
-
-Footer
-
-© 2022 GitHub, Inc.
-
-Footer navigation
-
-Terms
-
-
