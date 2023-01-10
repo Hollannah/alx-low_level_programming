@@ -5,6 +5,7 @@
  * argstostr - concatenates all the arguments of your program.
  * @ac: arguments count
  * @av: arguments vector
+ *
  * Return: a pointer to a new string, or NULL if it fails
  */
 char *argstostr(int ac, char **av)
@@ -31,16 +32,16 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0, j = 0; i < ac && j < len; i++)
 	{
-	       s = av[i];
-	       k = 0;
+		s = av[i];
+		k = 0;
+		while (s[k])
+		{
+			str[j] = s[k];
+			k++;
+			j++;
+		}
 
-	       while (s[k])
-	       {
-		       str[j] = s[k];
-		       k++;
-		       j++;
-	       }
-	       str[j++] = '\n';
+		str[j++] = '\n';
 	}
 	str[j] = '\0';
 
