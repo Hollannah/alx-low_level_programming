@@ -1,51 +1,36 @@
-#include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
- * print_all - Prints all of the arguments when specified
- * @format: specifies the necessary operations
- * Return: void
- */
+ * print_strings - a function that prints strings, followed by a new line
+ *
+ * @separator: pointer to a constant separator
+ * @n: start of input variables
+ *
+ * Return: nothing
+*/
 
-void print_all(const char * const format, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
-	int i;
-	int flag;
+	va_list ap;
+	unsigned int index;
 	char *str;
-	va_list a_list;
 
-	va_start(a_list, format);
-	i = 0;
-	while (format != NULL && format[i] != '\0')
+	/* iterate the argument list from the start */
+	va_start(ap, n);
+
+	for (index = 0; index < n; index++)
 	{
-		switch (format[i])
-		{
-			case 'c':
-				printf("%c", va_arg(a_list, int));
-				flag = 0;
-				break;
-			case 'i':
-				printf("%i", va_arg(a_list, int));
-				flag = 0;
-				break;
-			case 'f':
-				printf("%f", va_arg(a_list, double));
-			       flag = 0;
-			       break;
-			case 's':
-			       str = va_arg(a_list, char*);
-			       if (str == NULL)
-				       str = "(nil)";
-			       printf("%s", str);
-			       flag = 0;
-			       break;
-			default:
-			       flag = 1;
-			       break;
-		}
-		if (format[i + 1] != '\0' && flag == 0)
-			printf(", ");
-		i++;
+		str = va_arg(ap, char *);
+		if (str)
+			printf("%s", str);
+		else
+			printf("(nil)");
+
+		if (separator && index != n - 1)
+			printf("%s", separator);
 	}
+	/*clean up*/
+	va_end(ap);
 	printf("\n");
-	va_end(a_list);
 }
