@@ -1,12 +1,4 @@
-t no one
-
-mandatory
-
-Score: 0.0% (Checks completed: 0.0%)
-
-Write a function that allocates memory using malloc.
-
-
+0. Trust no one one
 
 Prototype: void *malloc_checked(unsigned int b);
 
