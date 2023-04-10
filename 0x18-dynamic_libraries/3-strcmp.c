@@ -1,15 +1,27 @@
 #include "main.h"
-#include <string.h>
+
 /**
- * _strcmp - function to compare string literals
- * @s1: first string pointer
- * @s2: second string pointer
- * Return: Integer difference
+ * _strcmp - compare 2 string
+ * @s1:string
+ * @s2:strmp
+ * Return:int
+ * hollannah
  */
 int _strcmp(char *s1, char *s2)
 {
-	int diff;
+	while (((*s1 != '\0') && (*s2 != '\0')) && (*s1 == *s2))
+	{
+		s1++;
+		s2++;
+	}
 
-	diff = strcmp(s1, s2);
-	return (diff);
+	if (*s1 == *s2)
+	{
+		return (0);
+	}
+
+	else
+	{
+		return (*s1 - *s2);
+	}
 }
